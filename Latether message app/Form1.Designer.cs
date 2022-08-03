@@ -29,36 +29,54 @@ namespace Latether_message_app
         /// </summary>
         private void InitializeComponent()
         {
-            this.inputBox = new System.Windows.Forms.TextBox();
+            this.messageBox = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.usernameBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // inputBox
+            // messageBox
             // 
-            this.inputBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.inputBox.Location = new System.Drawing.Point(12, 411);
-            this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(775, 27);
-            this.inputBox.TabIndex = 0;
-            this.inputBox.Text = "Type a message...";
-            this.inputBox.Enter += new System.EventHandler(this.InputBox_Enter);
-            this.inputBox.Leave += new System.EventHandler(this.InputBox_Leave);
+            this.messageBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.messageBox.Location = new System.Drawing.Point(12, 357);
+            this.messageBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.messageBox.Name = "messageBox";
+            this.messageBox.Size = new System.Drawing.Size(704, 23);
+            this.messageBox.TabIndex = 0;
+            this.messageBox.Text = "Type a message...";
+            this.messageBox.TextChanged += new System.EventHandler(this.messageBox_TextChanged);
+            this.messageBox.Enter += new System.EventHandler(this.MessageBox_Enter);
+            this.messageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterDown);
+            this.messageBox.Leave += new System.EventHandler(this.MessageBox_Leave);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 40);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(775, 393);
+            this.richTextBox1.Size = new System.Drawing.Size(704, 313);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
+            // usernameBox
+            // 
+            this.usernameBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.usernameBox.Location = new System.Drawing.Point(12, 12);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(228, 23);
+            this.usernameBox.TabIndex = 2;
+            this.usernameBox.Text = "Username";
+            this.usernameBox.Enter += new System.EventHandler(this.UsernameBox_Enter);
+            this.usernameBox.Leave += new System.EventHandler(this.UsernameBox_Leave);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(728, 391);
+            this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.inputBox);
+            this.Controls.Add(this.messageBox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -68,8 +86,9 @@ namespace Latether_message_app
 
         #endregion
 
-        private System.Windows.Forms.TextBox inputBox;
+        private System.Windows.Forms.TextBox messageBox;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox usernameBox;
     }
 }
 
