@@ -44,7 +44,7 @@ namespace Latether_message_app
             this.messageBox.TabIndex = 0;
             this.messageBox.Text = "Type a message...";
             this.messageBox.Enter += new System.EventHandler(this.MessageBox_Enter);
-            this.messageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
+            this.messageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessageBoxKeyDown);
             this.messageBox.Leave += new System.EventHandler(this.MessageBox_Leave);
             // 
             // richTextBox1
