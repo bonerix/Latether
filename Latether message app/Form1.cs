@@ -25,7 +25,7 @@ namespace Latether_message_app
             {
                 messageBox.Text = "";
                 messageBox.ForeColor = SystemColors.ControlText;
-            }
+            } 
         }
 
         private void MessageBox_Leave(object sender, EventArgs e)
@@ -37,30 +37,24 @@ namespace Latether_message_app
             }
         }
 
-        private void EnterDown(object sender, KeyEventArgs e)
+        private void KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
                 try
                 {
                     Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    s.Connect(IPAddress.Parse("192.168.1.100"), 42069);
+                    s.Connect(IPAddress.Parse("192.168.1.61"), 42069);
                     byte[] data = Encoding.Default.GetBytes(usernameBox.Text + ": " + messageBox.Text);
                     s.Send(data);
-                    s.Disconnect(true);
-                    s.Close();
-
+                    s.Disconnect(false);
                 }
                 catch
                 {
-                    Console.WriteLine("Internet gon");
+                    MessageBox.Show("No connection.", "BRUH", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void messageBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void UsernameBox_Enter(object sender, EventArgs e)
